@@ -1,0 +1,312 @@
+/* ---------- Tokens ---------- */
+:root {
+    --ink: #0f2e3a;
+    --ink-soft: #3d5a66;
+    --glass: #e4eeeb;
+    --white: #ffffff;
+    --signal: #f2b824;
+    --signal-dark: #d99f0f;
+    --error: #b3261e;
+    --ok: #1f7a55;
+    --line: #bfd2cc;
+  
+    --font-head: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius: 10px;
+  }
+  
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    background: var(--glass);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--font-head);
+    line-height: 1.1;
+    margin: 0;
+  }
+  
+  p { margin: 0; }
+  
+  :focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+  }
+  
+  /* ---------- Header ---------- */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  
+  .brand {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  
+  .header-link {
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid;
+    gap: 2rem;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 3rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.4rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+  }
+  
+  .lead {
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  
+  .facts {
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem 0 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  .facts li {
+    padding-left: 0.9rem;
+    border-left: 4px solid var(--signal);
+    color: var(--ink-soft);
+  }
+  
+  .facts strong { color: var(--ink); }
+  
+  /* ---------- Form panel ---------- */
+  .panel {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(15, 46, 58, 0.12);
+    scroll-margin-top: 1rem;
+  }
+  
+  .panel h2 { font-size: 1.6rem; }
+  
+  .panel-sub {
+    margin: 0.4rem 0 1.25rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  
+  .field { margin-bottom: 1rem; }
+  
+  .row { display: grid; gap: 0 1rem; }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .optional { font-weight: 400; color: var(--ink-soft); }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    min-height: 44px; /* comfortable tap target */
+  }
+  
+  textarea { resize: vertical; }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(242, 184, 36, 0.55);
+  }
+  
+  .field.invalid input,
+  .field.invalid select {
+    border-color: var(--error);
+  }
+  
+  .error {
+    color: var(--error);
+    font-size: 0.85rem;
+    min-height: 0;
+    margin-top: 0.3rem;
+  }
+  
+  .error:empty { display: none; }
+  
+  .field.check {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.6rem;
+    align-items: start;
+  }
+  
+  .field.check input {
+    width: 22px;
+    height: 22px;
+    margin: 0.1rem 0 0;
+    accent-color: var(--ink);
+  }
+  
+  .field.check label { margin: 0; font-weight: 400; }
+  .field.check .error { grid-column: 1 / -1; }
+  
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.8rem 1.25rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--signal);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  
+  .btn:hover { background: var(--signal-dark); }
+  .btn:disabled { opacity: 0.6; cursor: wait; }
+  
+  .btn-ghost { background: transparent; }
+  .btn-ghost:hover { background: var(--glass); }
+  
+  /* ---------- Confirmation screen ---------- */
+  .confirmation { text-align: center; padding: 1rem 0; }
+  .confirmation[hidden] { display: none; }
+  .confirmation:focus { outline: none; }
+  
+  .confirmation p { margin-top: 0.75rem; color: var(--ink-soft); }
+  .confirmation strong { color: var(--ink); word-break: break-word; }
+  
+  .tick {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: var(--ok);
+    color: var(--white);
+    font-size: 2rem;
+    animation: pop 0.35s ease-out;
+  }
+  
+  @keyframes pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  
+  .summary {
+    text-align: left;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--glass);
+    border-radius: 8px;
+  }
+  
+  .summary div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.35rem 0;
+  }
+  
+  .summary dt { color: var(--ink-soft); }
+  .summary dd { margin: 0; font-weight: 600; text-align: right; }
+  
+  /* ---------- Tours ---------- */
+  .tours {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+  }
+  
+  .tours h2 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .tour-list { display: grid; gap: 1.25rem; }
+  
+  .tour-list article {
+    padding-top: 1rem;
+    border-top: 3px solid var(--ink);
+  }
+  
+  .tour-list h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+  .tour-list p { color: var(--ink-soft); }
+  
+  /* ---------- Footer ---------- */
+  .site-footer {
+    padding: 1.5rem 1.25rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  
+  /* ---------- Tablet / desktop ---------- */
+  @media (min-width: 700px) {
+    .row { grid-template-columns: 1fr 1fr; }
+    .tour-list { grid-template-columns: repeat(3, 1fr); }
+    .panel { padding: 2rem; }
+  }
+  
+  @media (min-width: 960px) {
+    .hero {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+      gap: 3rem;
+      padding-top: 3rem;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .tick { animation: none; }
+    .btn { transition: none; }
+  }
+  

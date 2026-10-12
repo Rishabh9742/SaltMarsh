@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saltmarsh Kayak Co. | Guided paddle tours</title>
+  <meta name="description" content="Small-group guided kayak tours through tidal marshes. Request a spot for your group.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛶</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top">Saltmarsh Kayak Co.</a>
+    <a class="header-link" href="#request">Request a tour</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Paddle the marsh at first light.</h1>
+        <p class="lead">Guided kayak tours for groups of up to eight. We supply the boats, the gear and a guide who knows where the herons feed.</p>
+
+        <ul class="facts">
+          <li><strong>2.5 hrs</strong> on the water</li>
+          <li><strong>No experience</strong> needed</li>
+          <li><strong>Tide-timed</strong> departures</li>
+        </ul>
+      </div>
+
+      <!-- Lead form + confirmation screen -->
+      <div class="panel" id="request">
+        <form id="lead-form" novalidate>
+          <h2>Request your spot</h2>
+          <p class="panel-sub">Tell us what you have in mind. We reply within one working day.</p>
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <p class="error" id="name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="error" id="email-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel">
+            <p class="error" id="phone-error" aria-live="polite"></p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="tour">Tour</label>
+              <select id="tour" name="tour" required>
+                <option value="">Choose a tour</option>
+                <option value="Sunrise paddle">Sunrise paddle</option>
+                <option value="Slack-tide wildlife tour">Slack-tide wildlife tour</option>
+                <option value="Full-moon paddle">Full-moon paddle</option>
+              </select>
+              <p class="error" id="tour-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="group">Group size</label>
+              <input type="number" id="group" name="group" min="1" max="8" inputmode="numeric" required>
+              <p class="error" id="group-error" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" name="date" required>
+            <p class="error" id="date-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="message">Anything we should know? <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" maxlength="300"></textarea>
+          </div>
+
+          <div class="field check">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to be contacted about this request.</label>
+            <p class="error" id="consent-error" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="btn" id="submit-btn">Send request</button>
+        </form>
+
+        <div id="confirmation" class="confirmation" hidden tabindex="-1">
+          <div class="tick" aria-hidden="true">✓</div>
+          <h2 id="confirm-title">Request received</h2>
+          <p>Thanks, <span id="confirm-name"></span>. We'll email you at <strong id="confirm-email"></strong> within one working day to confirm.</p>
+          <dl class="summary">
+            <div><dt>Tour</dt><dd id="confirm-tour"></dd></div>
+            <div><dt>Date</dt><dd id="confirm-date"></dd></div>
+            <div><dt>Group</dt><dd id="confirm-group"></dd></div>
+          </dl>
+          <button type="button" class="btn btn-ghost" id="reset-btn">Make another request</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tours" aria-labelledby="tours-title">
+      <h2 id="tours-title">Three ways to see the marsh</h2>
+      <div class="tour-list">
+        <article>
+          <h3>Sunrise paddle</h3>
+          <p>Glide out as the mist lifts. Best for photographers and early risers.</p>
+        </article>
+        <article>
+          <h3>Slack-tide wildlife tour</h3>
+          <p>Calm, still water makes this the easiest trip for first-timers and families.</p>
+        </article>
+        <article>
+          <h3>Full-moon paddle</h3>
+          <p>Evening trips on the brightest nights of the month. Headlamps provided.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Saltmarsh Kayak Co. is a fictional business made for a demo.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
